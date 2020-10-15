@@ -1,2 +1,5 @@
-# darnbook
-facebook clone
+# Darnbook
+
+## Facebook clone
+
+### built with react, firebase, materialUI
