@@ -1,28 +1,36 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import "./Feed.css"
 import StoryReel from "./StoryReel"
 import MessageSender from "./MessageSender"
 import Post from "./Post"
+import db from "./firebase"
 
 function Feed() {
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+       db.collection('posts').onSnapshot(snapshot => 
+           setPosts(snapshot.docs.map(doc => ({ id: doc.id, data: doc.data() }))
+       ))
+    }, [])
     return (
         <div className="feed">
             <StoryReel/>
             <MessageSender />
-            <Post
-            profilePic="https://pbs.twimg.com/profile_images/1289438305969254402/UBOYNi2s_400x400.jpg"
-            message="Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, Hello friends, "
-            timestamp="2/2/2020"
-            username="Christian L"
-            image="https://media.giphy.com/media/pO4UHglOY2vII/giphy.gif"
-            />
-            <Post 
-            profilePic="https://pbs.twimg.com/profile_images/1289438305969254402/UBOYNi2s_400x400.jpg"
-            message="Good bye friends"
-            timestamp="2/2/2020"
-            username="Christian L"
-            image="https://media.giphy.com/media/6v2na6EASX8Zi/giphy.gif"
-            />
+            
+            {posts.map((post) => (
+                <Post
+                key={post.data.id} 
+                profilePic={post.data.profilePic}
+                message={post.data.message}
+                timestamp={post.data.timestamp}
+                username={post.data.username}
+                image={post.data.image}
+                />
+            ))}
+            
+            
+            
         </div>
     )
 }
