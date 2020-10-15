@@ -44,8 +44,6 @@
   width: 35vw;
   margin-right: 3%;
 }
-.header__center .MuiSvgIcon-root {
-}
 
 .header__option > .MuiSvgIcon-root {
   color: gray;
@@ -78,9 +76,6 @@
   align-items: center;
 
   border-bottom: none;
-}
-
-.header__info {
 }
 
 .header__right {
