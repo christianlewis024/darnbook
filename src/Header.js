@@ -13,10 +13,12 @@ import ForumIcon from '@material-ui/icons/Forum';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ListIcon from "@material-ui/icons/ListAltOutlined"
+import {useStateValue} from "./StateProvider"
 
 
 
 function Header() {
+    const [{user}, dispatch] = useStateValue();
 
     
 
@@ -53,7 +55,7 @@ function Header() {
             <div className="header__right">
                 <div className="header__info">                
                 
-                <Avatar src="https://pbs.twimg.com/profile_images/1289438305969254402/UBOYNi2s_400x400.jpg"/>
+                <Avatar src={user.photoURL}/>
 
                 
                 </div>
