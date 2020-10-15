@@ -1,0 +1,110 @@
+.header {
+  position: sticky;
+  background-color: white;
+  background-color: #4267b2;
+  z-index: 100;
+  top: 0px;
+  box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.75);
+  display: flex;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.header__left {
+  display: flex;
+  flex-grow: 2;
+  margin-left: 2%;
+}
+
+.header__input {
+  background-color: #eff2f5;
+  display: flex;
+  align-items: center;
+  border-radius: 999px;
+}
+
+.header__left > img {
+  height: 40px;
+}
+
+.header__input > input {
+  border: none;
+  background-color: transparent;
+  outline-width: 0;
+  align-items: center;
+  width: 100%;
+}
+
+.header__center {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  width: 35vw;
+  margin-right: 3%;
+}
+.header__center .MuiSvgIcon-root {
+}
+
+.header__option > .MuiSvgIcon-root {
+  color: gray;
+  color: white;
+}
+
+.header__option:hover > .MuiSvgIcon-root {
+  color: #2e81f4;
+  color: white;
+}
+
+.header__option--active > .MuiSvgIcon-root {
+  color: #2e81f4;
+}
+
+.header__option--active {
+  border-bottom: 4px solid #2e81f4;
+}
+
+.header__option {
+  cursor: pointer;
+  padding: 0 2%;
+  cursor: pointer;
+}
+
+.header__option:hover {
+  background-color: #eff2f5;
+  background-color: #385898;
+  border-radius: 10px;
+  align-items: center;
+
+  border-bottom: none;
+}
+
+.header__info {
+}
+
+.header__right {
+  color: white;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+/* @media only screen and (max-width: 1100px) {
+  .header__input {
+    border-radius: 999px;
+    width: 40px;
+  }
+  .header__inputInput {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .header__center {
+    display: none;
+  }
+  .header__centerMobile {
+    display: initial;
+    color: white;
+  }
+} */
